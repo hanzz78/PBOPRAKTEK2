@@ -1,10 +1,10 @@
-package "PBOPRAKTEK2";
-public class alattulis {
+package PBOPRAKTEK2;
+public class Alattulis {
     private String nama;
     private double harga;
     private int stok;
 
-    public alattulis (String nama, double harga, int stok){
+    public Alattulis(String nama, double harga, int stok){
         this.nama = nama;
         this.harga = harga;
         this.stok = stok;
@@ -25,5 +25,9 @@ public class alattulis {
         } else {
             System.out.println("Stok " + nama + " habis!");
         }}
+    public void tampilkanInfo(int index) {
+    System.out.println((index+1) + ". " + nama + " | Rp" + harga + " | Stok: " + stok);
+}
+
 
 }

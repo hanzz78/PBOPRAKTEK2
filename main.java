@@ -1,13 +1,17 @@
 package PBOPRAKTEK2;
-public class main {
+
+import java.util.Scanner;
+
+public class Main {
     public static void main (String[] args){
-        
-        makanan [] menuMakanan ={
-            new makanan("nasi goreng", 100000, 3)
+        Scanner input = new Scanner(System.in);
+
+        Makanan [] menuMakanan ={
+            new Makanan("nasi goreng", 100000, 3)
         };
 
-        alattulis [] menualattulis = {
-            new alattulis("bolpoin", 50000, 3)
+        Alattulis [] menualattulis = {
+            new Alattulis("bolpoin", 50000, 3)
         };
 
         System.out.println("----SELAMAT DATANG DI KOPERASI KELUARGA SEHAT----");
@@ -18,31 +22,33 @@ public class main {
 
         if (pilihan == 1){
             System.out.println("----PILIHAN MENU----");
-            for (int i=0; i<menuMakanan.lenght; i++){
-                menuMakanan[i].tampilkaninfo(i);
+            for (int i=0; i<menuMakanan.length; i++){
+                menuMakanan[i].tampilkanInfo(i);
             }
              System.out.print("Pilih nomor makanan yang ingin dibeli: ");
             int pilihMakanan = input.nextInt() - 1;
 
             if (pilihMakanan >= 0 && pilihMakanan < menuMakanan.length) {
                 menuMakanan[pilihMakanan].kurangiStok();
-                System.out.println("Anda membeli: " + menuMakanan[pilihMakanan].getnama());
+                System.out.print("Anda membeli: " + menuMakanan[pilihMakanan].getnama());
+
+                System.out.println("dengan harga = " + menuMakanan[pilihMakanan].getharga());
             } else {
                 System.out.println("Pilihan tidak valid!");
             }
         }
         else if (pilihan == 2) {
             System.out.println("\n=== Menu Alat Tulis ===");
-            for (int i = 0; i < menuAlatTulis.length; i++) {
-                menuAlatTulis[i].tampilkanInfo(i);
+            for (int i = 0; i < menualattulis.length; i++) {
+                menualattulis[i].tampilkanInfo(i);
             }
 
             System.out.print("Pilih nomor alat tulis yang ingin dibeli: ");
             int pilihAlat = input.nextInt() - 1;
 
-            if (pilihAlat >= 0 && pilihAlat < menuAlatTulis.length) {
-                menuAlatTulis[pilihAlat].kurangiStok();
-                System.out.println("Anda membeli: " + menuAlatTulis[pilihAlat].getNama());
+            if (pilihAlat >= 0 && pilihAlat < menualattulis.length) {
+                menualattulis[pilihAlat].kurangiStok();
+                System.out.println("Anda membeli: " + menualattulis[pilihAlat].getnama());
             } else {
                 System.out.println("Pilihan tidak valid!");
             }
@@ -54,7 +60,4 @@ public class main {
         input.close();
     }
 }
-    }
-
     
-}

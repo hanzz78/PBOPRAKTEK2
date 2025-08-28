@@ -1,10 +1,10 @@
-package "PBOPRAKTEK2";
-public class makanan {
+package PBOPRAKTEK2;
+public class Makanan {
     private String nama;
     private double harga;
     private int stok;
 
-    public makanan (String nama, double harga, int stok){
+    public Makanan(String nama, double harga, int stok){
         this.nama = nama;
         this.harga=harga;
         this.stok=stok;
@@ -25,6 +25,6 @@ public class makanan {
             System.out.println("Stok " + nama + " habis!");
         }
     }
-    private void tampilkanInfo(int index) {
+    public void tampilkanInfo(int index) {
         System.out.println((index+1) + ". " + nama + " | Rp" + harga + " | Stok: " + stok);
 }}

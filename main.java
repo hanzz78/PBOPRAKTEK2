@@ -20,9 +20,9 @@ public class Main {
             new Alattulis("Buku Tulis", 10000)
         };
 
-        System.out.println("=== Selamat Datang di Toko ===");
-        System.out.println("1. Beli Makanan");
-        System.out.println("2. Beli Alat Tulis");
+        System.out.println("=== Selamat Datang di Koperasi Keluarga Sehat ===");
+        System.out.println("1. Makanan");
+        System.out.println("2. Alat Tulis");
         System.out.print("Pilih kategori: ");
         int kategori = sc.nextInt();
 

@@ -3,61 +3,67 @@ package PBOPRAKTEK2;
 import java.util.Scanner;
 
 public class Main {
-    public static void main (String[] args){
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        Makanan [] menuMakanan ={
-            new Makanan("nasi goreng", 100000, 3)
+        // Daftar menu makanan
+        Makanan[] menuMakanan = {
+            new Makanan("Nasi Goreng", 15000),
+            new Makanan("Mie Goreng", 20000),
+            new Makanan("Ayam Geprek", 25000)
         };
 
-        Alattulis [] menualattulis = {
-            new Alattulis("bolpoin", 50000, 3)
+        // Daftar menu alat tulis
+        Alattulis[] menuAlattulis = {
+            new Alattulis("Bolpoin", 5000),
+            new Alattulis("Pensil", 3000),
+            new Alattulis("Buku Tulis", 10000)
         };
 
-        System.out.println("----SELAMAT DATANG DI KOPERASI KELUARGA SEHAT----");
-        System.out.println("1. Makanan");
-        System.out.println("2. alat tulis");
-        System.out.print("pilih kategori = ");
-        int pilihan = input.nextInt();
+        System.out.println("=== Selamat Datang di Toko ===");
+        System.out.println("1. Beli Makanan");
+        System.out.println("2. Beli Alat Tulis");
+        System.out.print("Pilih kategori: ");
+        int kategori = sc.nextInt();
 
-        if (pilihan == 1){
-            System.out.println("----PILIHAN MENU----");
-            for (int i=0; i<menuMakanan.length; i++){
+        if (kategori == 1) {
+            System.out.println("\n--- Menu Makanan ---");
+            for (int i = 0; i < menuMakanan.length; i++) {
                 menuMakanan[i].tampilkanInfo(i);
             }
-             System.out.print("Pilih nomor makanan yang ingin dibeli: ");
-            int pilihMakanan = input.nextInt() - 1;
 
-            if (pilihMakanan >= 0 && pilihMakanan < menuMakanan.length) {
-                menuMakanan[pilihMakanan].kurangiStok();
-                System.out.print("Anda membeli: " + menuMakanan[pilihMakanan].getnama());
+            System.out.print("Pilih nomor makanan: ");
+            int pilihan = sc.nextInt();
+            System.out.print("Jumlah beli: ");
+            int jumlah = sc.nextInt();
 
-                System.out.println("dengan harga = " + menuMakanan[pilihMakanan].getharga());
-            } else {
-                System.out.println("Pilihan tidak valid!");
+            Makanan beli = menuMakanan[pilihan-1];
+            double total = beli.getHarga() * jumlah;
+
+            System.out.println("\n=== Struk Pembelian ===");
+            System.out.println(beli.getNama() + " x" + jumlah + " = Rp" + total);
+
+        } else if (kategori == 2) {
+            System.out.println("\n--- Menu Alat Tulis ---");
+            for (int i = 0; i < menuAlattulis.length; i++) {
+                menuAlattulis[i].tampilkanInfo(i);
             }
-        }
-        else if (pilihan == 2) {
-            System.out.println("\n=== Menu Alat Tulis ===");
-            for (int i = 0; i < menualattulis.length; i++) {
-                menualattulis[i].tampilkanInfo(i);
-            }
 
-            System.out.print("Pilih nomor alat tulis yang ingin dibeli: ");
-            int pilihAlat = input.nextInt() - 1;
+            System.out.print("Pilih nomor alat tulis: ");
+            int pilihan = sc.nextInt();
+            System.out.print("Jumlah beli: ");
+            int jumlah = sc.nextInt();
 
-            if (pilihAlat >= 0 && pilihAlat < menualattulis.length) {
-                menualattulis[pilihAlat].kurangiStok();
-                System.out.println("Anda membeli: " + menualattulis[pilihAlat].getnama());
-            } else {
-                System.out.println("Pilihan tidak valid!");
-            }
+            Alattulis beli = menuAlattulis[pilihan-1];
+            double total = beli.getHarga() * jumlah;
+
+            System.out.println("\n=== Struk Pembelian ===");
+            System.out.println(beli.getNama() + " x" + jumlah + " = Rp" + total);
 
         } else {
-            System.out.println("Pilihan kategori tidak ada!");
+            System.out.println("Pilihan tidak valid!");
         }
 
-        input.close();
+        sc.close();
     }
 }
-    
